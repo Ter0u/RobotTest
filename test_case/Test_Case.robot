@@ -17,3 +17,10 @@ CT1: Realizar Login com Sucesso
     E preencho os campos de Senha e Usuário
     E clico em Login
     Então realizo login com sucesso
+
+CT2: Realizar Login com Erro
+    Dado que acesso ao site
+    Quando clico em usuário
+    E preencho os campos de Senha e Usuário incorretamente
+    E clico em Login
+    Então deve aparecer tela de Erro

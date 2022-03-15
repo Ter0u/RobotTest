@@ -10,7 +10,7 @@ Verifica_Site
 
 Clicar_Usuário
     Click Element                        ${botao_usuario}
-    Sleep                                    5
+    Sleep                                    2
     
 
 Preencher_Nome
@@ -25,9 +25,24 @@ Preencher_Senha
 
 Clico_Login
     Click button                         ${botao_login}
-    Sleep                                    5
+    Sleep                                    2
 
 
 Verifico_Login
-    Click Element                        ${botao_usuario}       
+    Clicar_Usuário       
     Wait Until Element Is Visible        ${botao_saida}         10   
+
+
+Preencher_Nome_Errado
+    Input Text                           ${nome_usuario}        barrigudo
+    Sleep                                    2
+
+
+Preencher_Senha_Errada
+    Input Text                           ${senha_usuario}       A123
+    Sleep                                    2
+
+
+Verifico_Login_Com_Erro      
+   Wait Until Element Is Visible          ${resultado}          10  
+
