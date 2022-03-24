@@ -20,6 +20,7 @@ E clico em Login
 
 Então realizo login com sucesso
     Verifico_Login
+    Tirar_Print
 
 #######################################################################
 
@@ -29,6 +30,7 @@ E preencho os campos de Senha e Usuário incorretamente
 
 Então deve aparecer tela de Erro
     Verifico_Login_Com_Erro
+    Tirar_Print
 
 #######################################################################
 
@@ -55,3 +57,4 @@ E concordo com os termos de aceite
 Então realizo cadastro com sucesso
     Clico_Confirmar_Registro
     Verifico_Login
+    Tirar_Print

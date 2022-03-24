@@ -1,8 +1,15 @@
 *** Settings ***
 Resource                                 ../pages/Page_Advantage.robot
 Library                                  SeleniumLibrary
+Library                                  FakerLibrary                 locale=pt_BR
 
 *** Keywords ***
+
+Tirar_Print
+    Sleep                                2
+    Capture Page Screenshot
+
+
 Verifica_Site
     Sleep                                10
     Wait Until Element Is Visible        ${logo_site}                  20
@@ -52,67 +59,76 @@ Clico_Novo_Cadastro
     Sleep                                3
 
 Preencho_Nome_Usuario
-    Input Text                           ${usuario_nome}               Rodolfo
+    ${NAMEFAKE}                          FakerLibrary.User Name
+    Input Text                           ${usuario_nome}               ${NAMEFAKE}
     Sleep                                2
 
 
 Preencho_Email
-    Input Text                           ${usuario_email}              pericles02@gmail.com
+    ${EMAILFAKE}                         FakerLibrary.Email
+    Input Text                           ${usuario_email}              ${EMAILFAKE}
     Sleep                                2
 
 
 Preencho_Senha
-    Input Text                           ${usuario_senha}              Batata0901
+    Input Text                           ${usuario_senha}              Abc123
     Sleep                                2
 
 
 Preencho_Senha_Confirm
-    Input Text                           ${usuario_confirm_senha}      Batata0901
+    Input Text                           ${usuario_confirm_senha}      Abc123
     Sleep                                2
     
 
 Preencho_Primeiro_Nome
-    Input Text                           ${usuario_primeiro_nome}      pericles
+    ${NAMEFAKE}                          FakerLibrary.First Name
+    Input Text                           ${usuario_primeiro_nome}      ${NAMEFAKE}
     Sleep                                2
 
 
 Preencho_Sobrenome
-    Input Text                           ${usuario_sobrenome}          rodriguez
+    ${LNAMEFAKE}                         FakerLibrary.Last Name
+    Input Text                           ${usuario_sobrenome}          ${LNAMEFAKE}
     Sleep                                2
 
 
 Preencho_Celular_Numero
-    Input Text                           ${celular_numero}            1138747402
+    ${NUMEROFAKE}                        FakerLibrary.Phone Number
+    Input Text                           ${celular_numero}             ${NUMEROFAKE}
     Sleep                                2
 
 
 Preencher_País
-    [Arguments]                             ${combobox}         ${opcaocombobox}
-    Wait Until Element Is Visible           ${combobox}                            10
-    Click Element                           ${combobox}
-    ${Item}                                 Set Variable                           ${combobox}//option[@label='${opcaocombobox}']
-    Wait Until Element Is Visible           ${Item}                                10
-    Click Element                           ${Item}
-    Sleep                                   2
+    [Arguments]                          ${combobox}                   ${opcaocombobox}
+    Wait Until Element Is Visible        ${combobox}                   10
+    Click Element                        ${combobox}
+    ${Item}                              Set Variable                  ${combobox}//option[@label='${opcaocombobox}']
+    Wait Until Element Is Visible        ${Item}                       10
+    Click Element                        ${Item}
+    Sleep                                2
 
 
 Preencho_Cidade
-    Input Text                           ${usuario_cidade}            Centro, Osasco         
+    ${CIDADEFAKE}                        FakerLibrary.City
+    Input Text                           ${usuario_cidade}              ${CIDADEFAKE}             
     Sleep                                2
 
 
 Preencher_Endereco
-    Input Text                           ${usuario_endereco}          Torre Offices - Av Domingos Odália Filho, 301
+    ${ENDERECOFAKE}                      FakerLibrary.Street Address
+    Input Text                           ${usuario_endereco}            ${ENDERECOFAKE}
     Sleep                                2
 
 
 Preencho_Estado
-    Input Text                           ${usuario_estado}            São Paulo
+    ${ESTADOFAKE}                        FakerLibrary.State
+    Input Text                           ${usuario_estado}              ${ESTADOFAKE}
     Sleep                                2
 
 
 Preencho_Codigo_Postal
-    Input Text                           ${usuario_codigo_postal}     06454050
+    ${CODIGOPOSTAL}                      FakerLibrary.Postcode
+    Input Text                           ${usuario_codigo_postal}       ${CODIGOPOSTAL}
     Sleep                                2
 
 
